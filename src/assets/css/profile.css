@@ -1,0 +1,40 @@
+.profile-card {
+  width: 70%;
+  margin: 0 auto;
+  height: 600px;
+  background-color: red;
+  margin-top: 40px;
+  padding: 10px;
+  border-radius: 12px;
+  border: black;
+  border-style: solid;
+  position: relative;
+}
+
+.poke-profile-image {
+  border-radius: 12px;
+  margin: 15px;
+  display: inline-block;
+}
+
+.nameorder-bullet {
+  background-color: blanchedalmond;
+  margin: 15px;
+  width: 27%;
+}
+
+.radarchart {
+  position: absolute;
+  top: 25px;
+  width: 250px;
+  height: 250px;
+}
+
+.details-box {
+  position: absolute;
+  top: 25px;
+  left: 406px;
+  background-color: chocolate;
+  width: 40%;
+  height: 59%;
+}

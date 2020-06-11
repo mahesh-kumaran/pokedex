@@ -1,45 +1,20 @@
-import React, { Component } from "react";
-import { getPokeList } from "../services/pokeService";
-
-const cardStyle = {
-  width: "15%",
-  height: "150px",
-  backgroundColor: "red",
-  margin: "15px",
-  border: "1px",
-  float: "left",
-  borderRadius: "8px",
-  
-};
+import React from "react";
+import "../assets/css/card.css";
+import { makeThreeDigits } from "../common/utils";
 
 const PokeCard = (props) => {
-  const { pokeName, pokeUrl } = props;
+  const { pokeName, pokeUrl, pokeOrder } = props;
+
   return (
-    <div style={cardStyle}>
-      {/* <img
-        style={{ float: "left", padding: '20px'}}
-        src={pokeUrl}
-        alt={""}
-      /> */}
-      <span
-        style={{
-          position: "relative",
-          top: "0px",
-          padding: "20px",
-          margin: "20px",
-        }}
-      >
-        <h3>{pokeName}</h3>
-      </span>
+    <div className="poke-card" onClick={props.onCardClick}>
+      <div className="poke-image">
+        <img className="animated-gif" src={pokeUrl} alt={""} />
+      </div>
+      <span className="poke-order">{`${makeThreeDigits(pokeOrder)}`}</span>
+      <span className="poke-name">{pokeName.toUpperCase()}</span>
     </div>
   );
 };
 
 //
 export default PokeCard;
-
-
-
-
-
-

@@ -15,29 +15,52 @@ class PokeCardList extends Component {
     this.setState({ pokeList });
   }
 
+  handleCardClick = (pokeId) => {
+    this.props.history.push(`/pokemon/${pokeId}`);
+  };
+
   render() {
     const { pokeList } = this.state;
     return (
       <React.Fragment>
-        <div style={{ padding: '25px', width: '100%', height: '100px'}}>
-          <span style={{ float: 'left'}}>
-            <i class="fa fa-arrow-circle-left fa-4x"></i>
+        {/* <div
+          style={{
+            padding: "25px",
+            width: "100%",
+            height: "100px",
+            margin: "",
+          }}
+        >
+          <span style={{ float: "left" }}>
+            <i className="fa fa-arrow-circle-left fa-4x"></i>
           </span>
-          <span style={{ float: 'right'}}>
-            <i class="fa fa-arrow-circle-right fa-4x"></i>
+          <span style={{ float: "right" }}>
+            <i className="fa fa-arrow-circle-right fa-4x"></i>
           </span>
-        </div>
-        <div  style={{ padding: '50px', width: '100%', height: '100%' }}>
+        </div> */}
+        <div
+          style={{
+            padding: "50px",
+            width: "100%",
+            height: "100%",
+            margin: "auto",
+          }}
+        >
           {pokeList.map((pokeMon) => {
+            let order = pokeMon.url.split("/").reverse()[1];
             return (
               <PokeCard
+                key={order}
                 pokeName={pokeMon.name}
-                pokeUrl={`https://projectpokemon.org/images/normal-sprite/${pokeMon.name}.gif`}
+                pokeUrl={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${order}.png`}
+                pokeOrder={order}
+                onCardClick={() => {
+                  this.handleCardClick(order);
+                }}
               />
             );
           })}
         </div>
-
       </React.Fragment>
     );
   }
